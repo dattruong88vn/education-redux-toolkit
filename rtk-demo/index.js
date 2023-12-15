@@ -2,6 +2,7 @@ const store = require("./app/store");
 
 const { cakeActions } = require("./features/cake/cakeSlice");
 const { iceCreamActions } = require("./features/icecream/iceCreamSlice");
+const { fetchUsers } = require("./features/users/usersSlice");
 
 console.log("initial state", store.getState());
 
@@ -19,4 +20,6 @@ store.dispatch(iceCreamActions.ordered());
 store.dispatch(iceCreamActions.ordered());
 store.dispatch(iceCreamActions.restocked(3));
 
-unregister();
+store.dispatch(fetchUsers());
+
+// unregister();
