@@ -65,3 +65,13 @@ Giúp mutate nested object một cách dễ dàng hơn.
 - Cần khá nhiều code mẫu lặp đi lặp lại. Khi thêm 1 tính năng, cần phải define action, action creator, action object và switch case bên trong reducer.
 - Khá nhiều thư viện cần phải cài đặt thêm để kết hợp với redux: redux-thunk, redux-devtool, immer...
 - Cần phải nâng cao trải nghiệm của developer khi làm việc với redux --> redux toolkit
+
+#### Extra Reducers
+
+Đối với REDUX, trường hợp combine nhiều reducers nếu có 1 action được dispatch thì tất cả các reducer đều lắng nghe được action này.
+
+Ví dụ, action ORDERED_CAKE được dispatch thì cả cakeReducer và iceCreamReducer đều lắng nghe, tuy nhiên chỉ có cakeReducer xử lý còn iceCreamReducer sẽ ignore.
+
+Đối với RTK thì trường hợp trên không xảy ra, reducer chỉ lắng nghe được những action nằm chung slice với reducer đó.
+
+Muốn lắng nghe được action từ một slice khác thì phải khai báo thông qua extraReducers.
