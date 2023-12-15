@@ -55,3 +55,13 @@ actions.cakeOrder();
 actions.cakeOrder();
 actions.cakeRestock(3);
 ```
+
+###### Immer library
+
+Giúp mutate nested object một cách dễ dàng hơn.
+
+#### Redux và những thiếu sót
+
+- Cần khá nhiều code mẫu lặp đi lặp lại. Khi thêm 1 tính năng, cần phải define action, action creator, action object và switch case bên trong reducer.
+- Khá nhiều thư viện cần phải cài đặt thêm để kết hợp với redux: redux-thunk, redux-devtool, immer...
+- Cần phải nâng cao trải nghiệm của developer khi làm việc với redux --> redux toolkit
