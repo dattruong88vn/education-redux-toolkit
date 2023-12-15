@@ -33,7 +33,7 @@ const reducer = (state = initialState, action) => {
 
       // immer
       return produce(state, (draft) => {
-        draft.address.street = "Quang Trung";
+        draft.address.street = action.payload;
       });
 
     default:
