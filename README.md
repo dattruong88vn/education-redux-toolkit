@@ -22,3 +22,36 @@ Redux Toolkit có chức năng trừu tượng hoá Redux, nó ẩn đi những 
 Redux và RTK không phụ thuộc vào các thư viện UI, nó có thể làm việc với React, Angular, Vue hoặc Vanilla Javascript.
 
 Đối với React, RTK cần kết hợp với thư viện React-Redux để có thể connect với nhau.
+
+#### Redux Pattern
+
+Đã được mô tả kỹ trong repository education-redux.
+
+###### bindActionCreators
+
+Được sử dụng để tránh lặp đi lặp lại thao tác dispatch action.
+Tham số (2 tham số):
+
+- Tham số thứ nhất: là 1 object, key là tên actionCreator sau khi được bind, value là các actionCreator.
+- Tham số thứ hai: function dispatch của store (được return từ function createStore).
+
+Giá trị trả về:
+
+- Object với các method chính là các actionCreate đã được bind
+
+```
+// Before
+store.dispatch(cakeOrder());
+store.dispatch(cakeOrder());
+store.dispatch(cakeOrder());
+store.dispatch(cakeRestock(3));
+
+// After
+const { bindActionCreators } = require('redux');
+...
+const actions = bindActionCreators({ cakeOrder, cakeRestock }, store.dispatch);
+actions.cakeOrder();
+actions.cakeOrder();
+actions.cakeOrder();
+actions.cakeRestock(3);
+```
